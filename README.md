@@ -1,4 +1,4 @@
-#Website KITAGO dibuat menggunakan LARAVEL. Anda bisa melihat folder laravel tersebut di brach MASTER
+# Website KITAGO dibuat menggunakan LARAVEL. Anda bisa melihat folder laravel tersebut di branch MASTER
 # 07_KitaGo_IF-43-12
 Dita Noviyanti (1301194125)
 
