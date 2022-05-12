@@ -10,11 +10,9 @@ class RatingController extends Controller
 {
     public function viewRating(Request $request, $id)
     {
-        echo ("tested");
         $rate = Rating::get();
         foreach ($rate as $r) {
             if ($r -> idPaket == $request -> idPaket){
-                echo ("tested");
                 $check .= [
                     'paket' => $r -> idPaket,
                     'checked' => "checked",
