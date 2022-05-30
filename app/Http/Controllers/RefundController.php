@@ -11,6 +11,9 @@ class RefundController extends Controller
 {
     public function refund(Request $request, $id)
     {
+        if (null == Session::get('user')){
+            return redirect('/kgweb/login');
+        }
         return view('kgweb.refund', [
             'title' => 'Refund Paket',
             'method' => 'POST',
@@ -22,6 +25,9 @@ class RefundController extends Controller
 
     public function refundBook(Request $request, $id)
     {
+        if (null == Session::get('user')){
+            return redirect('/kgweb/login');
+        }
         Booking::destroy($id);
         $user = session('user');
         $data = new Refund;

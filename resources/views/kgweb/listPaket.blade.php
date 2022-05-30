@@ -54,8 +54,8 @@
             <div class="dropdown">
               <button class="dropbtn">Sign Up</button>
               <div class="dropdown-content">
-                <a href="/kgweb/regisA">Agent Traveller</a>
-                <a href="/kgweb/regisC">Traveller</a>
+                <a href="/kgweb/regis/agent">Agent Traveller</a>
+                <a href="/kgweb/regis/customer">Traveller</a>
               </div>
             </div> 
             <a href="/kgweb/login">Login</a>
@@ -68,7 +68,7 @@
     <section>
     
     <div class="search" style="padding-top:10%; font-size:18px">
-      <input type="text" id="search" placeholder="Search.." name="search">
+      <input type="text" id="search" placeholder="Search Nama Paket..." name="search">
       <button onclick="search()" style="cursor: pointer;"><i class="fa fa-search"></i></button>
     </div>
     <script>

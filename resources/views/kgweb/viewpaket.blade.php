@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<!--
+ * PENDAHULUAN
+
+ * Tujuan : Codingan ini bertujuan untuk dapat melihat data dari paket yang dipilih oleh user.
+
+ * Deskripsi : Codingan ini merupakan view untuk menampilkan data paket secara lebih detail.
+-->
 <html>
 <head>
     <meta charset="utf-8">
@@ -30,12 +37,14 @@
 </head>
   <body>
     <header>
+        <!--Header-->
         <div class="cont">
             <div class="header-left">
             Kita<span style="font-family: 'Font GO'; color:white;margin-left:0%;font-size:50px">GO</span>
             </div>
         </div>
         <input type="hidden" name="userID" value="{{ $user = session('user'); }}">
+        <!--Mengambil data user dari session-->
         @if (isset($user))
           <div class="navbar">
             <div class="dropdown">
@@ -55,8 +64,8 @@
             <div class="dropdown">
               <button class="dropbtn">Sign Up</button>
               <div class="dropdown-content">
-                <a href="/kgweb/regisA">Agent Traveller</a>
-                <a href="/kgweb/regisC">Traveller</a>
+                <a href="/kgweb/regis/agent">Agent Traveller</a>
+                <a href="/kgweb/regis/customer">Traveller</a>
               </div>
             </div> 
             <a href="/kgweb/login">Login</a>
@@ -67,10 +76,17 @@
         @endif
     </header>
     <div class="top-view">
+      <!--Data paket diterima oleh controller paket-->
       <div class="contain">
       <h2>{{ $paket -> namaPaket }}</h2>
       <p style="text-align:center;font-size:21px">Price: Rp {{ $paket -> harga }}</p>
       <form name="rateForm" method="POST" action="/kgweb/{{ $paket -> id }}/rate" style="margin-left:35%"><br>
+        <!--
+          * Form untuk melakukan rating pada paket
+
+          * User akan memilih dari 1 bintang sampai 5 bintang untuk memberi nilai rating
+          * 1-5 kepada paket yang diview.
+        -->
         @csrf
           <input type=hidden name="idUser" id="idUser" value="{{ $user -> id }}"/>
           <input type=hidden name="idPaket" id="idPaket" value="{{ $paket -> id }}"/>
@@ -98,12 +114,14 @@
           
         </form>
         <span>{{ session('msg') }}</span>
+        <!--Pesan untuk user apabila user sudah membooking paket yang diview-->
         <h2 style="text-align: center;padding-left:20px">Description</h2>
         <p style="text-align: center">{{ $paket -> deskripsi }}</p>
         
     </div>
     <section>
 		  <div class="container" style="margin-top: -10px;">
+          <!--Data penginapan dan wisata diterima oleh controller paket-->
             <table style="margin-top: 40px;margin-left: 2%">
                 <tr>
                     <th colspan="2">
@@ -199,6 +217,7 @@
   </body>
 
   <footer>
+    <!--Footer-->
     <hr style="margin-left: 20px;margin-right: 20px;color:#333">
     <ul>
       <li>&copy 2022 KitaGO Company, Inc</li>

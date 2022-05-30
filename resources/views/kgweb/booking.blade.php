@@ -45,8 +45,8 @@
             <div class="dropdown">
               <button class="dropbtn">Sign Up</button>
               <div class="dropdown-content">
-                <a href="/kgweb/regisA">Agent Traveller</a>
-                <a href="/kgweb/regisC">Traveller</a>
+                <a href="/kgweb/regis/agent">Agent Traveller</a>
+                <a href="/kgweb/regis/customer">Traveller</a>
               </div>
             </div> 
             <a href="/kgweb/login">Login</a>

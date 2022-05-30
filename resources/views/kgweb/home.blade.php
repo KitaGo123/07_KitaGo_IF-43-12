@@ -54,8 +54,8 @@
             <div class="dropdown">
               <button class="dropbtn">Sign Up</button>
               <div class="dropdown-content">
-                <a href="/kgweb/regisA">Agent Traveller</a>
-                <a href="/kgweb/regisC">Traveller</a>
+                <a href="/kgweb/regis/agent">Agent Traveller</a>
+                <a href="/kgweb/regis/customer">Traveller</a>
               </div>
             </div> 
             <a href="/kgweb/login">Login</a>
@@ -79,6 +79,21 @@
       @endif
     </div>
     <section>
+    <div class="search" style="padding-top:10%; font-size:18px">
+      <input type="text" id="search" placeholder="Search Nama Paket..." name="search">
+      <button onclick="search()" style="cursor: pointer;"><i class="fa fa-search"></i></button>
+    </div>
+    <script>
+      function search(){
+        const scroll = document.getElementById('search').value;
+        const e = document.getElementById(scroll);
+        if (e !== null) {
+          e.scrollIntoView({block: "center"});
+        } else {
+          alert("Package Not Found");
+        }
+      }
+    </script>
 		<div class="container">
 			<div class="scrollmenu">
 				@if (isset($paket))
@@ -91,7 +106,7 @@
               </a>
             </div>
             @foreach ($paket as $p)
-              <div class="card">
+              <div class="card" id="{{$p -> namaPaket}}" value="{{$p -> namaPaket}}">
                 <div class="content">
                   @if (isset($rates))
                     <div class="imgBx">
@@ -139,7 +154,7 @@
               </a>
             </div>
             @foreach ($paket as $p)
-              <div class="card">
+              <div class="card" id="{{$p -> namaPaket}}" value="{{$p -> namaPaket}}">
                 <div class="content">
                   <div class="imgBx">
                     <p>
@@ -169,19 +184,21 @@
                     <h3>Paket<br><span>{{ $p -> namaPaket}}</span></h3>
                   </div>
                 </div>
-                <div class="sci">
-                  <a class="btn btn-danger" href="/kgweb/paket/{{ $p -> id}}/editPaket">
-                    <img src="/css/edit.png" style="width: 30px; justify-content: center;">
-                  </a>
-                  <form method="post" action="/kgweb/paket/{{ $p -> id}}"
-                      style="display:inline" onsubmit="return confirm('Yakin hapus?')">
-                      @csrf
-                      @method('DELETE')
-                      <button class="btn btn-danger" style="border:none">
-                        <img src="/css/delete.png" style="width: 30px; border:none">
-                      </button>
-                  </form>
-                </div>
+                @if ($p -> idJasa == $user -> id)
+                  <div class="sci">
+                    <a class="btn btn-danger" href="/kgweb/paket/{{ $p -> id}}/editPaket">
+                      <img src="/css/edit.png" style="width: 30px; justify-content: center;">
+                    </a>
+                    <form method="post" action="/kgweb/paket/{{ $p -> id}}"
+                        style="display:inline" onsubmit="return confirm('Yakin hapus?')">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" style="border:none">
+                          <img src="/css/delete.png" style="width: 30px; border:none">
+                        </button>
+                    </form>
+                  </div>
+                @endif
               </div>
             @endforeach
           @endif

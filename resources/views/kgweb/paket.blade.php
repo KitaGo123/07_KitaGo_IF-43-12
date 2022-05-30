@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<!--
+ * PENDAHULUAN
+
+ * Tujuan : Codingan ini bertujuan sebagai form untuk mengisi data - data pada paket apabila user
+ * perlu menambah atau mengubah data pada paket.
+
+ * Deskripsi : Codingan ini merupakan view untuk menampilkan form pengisian data paket.
+-->
 <html>
 <head>
     <meta charset="utf-8">
@@ -20,12 +28,14 @@
 </head>
   <body>
     <header>
+        <!--Header-->
         <div class="cont">
             <div class="header-left">
             Kita<span style="font-family: 'Font GO'; color:white">GO</span>
             </div>
         </div>
         <input type="hidden" name="userID" value="{{ $user = session('user'); }}">
+        <!--Mengambil data user dari session-->
         @if (isset($user))
           <div class="navbar">
             <div class="dropdown">
@@ -45,8 +55,8 @@
             <div class="dropdown">
               <button class="dropbtn">Sign Up</button>
               <div class="dropdown-content">
-                <a href="/kgweb/regisA">Agent Traveller</a>
-                <a href="/kgweb/regisC">Traveller</a>
+                <a href="/kgweb/regis/agent">Agent Traveller</a>
+                <a href="/kgweb/regis/customer">Traveller</a>
               </div>
             </div> 
             <a href="/kgweb/login">Login</a>
@@ -61,22 +71,50 @@
         <div class= "form-P">
           <p>{{$title}}</p>
           <input type="hidden" name="userID" value="{{ $user = session('user'); }}">
+          <input type="hidden" name="penID" value="{{ $penginapan = session('penginapan'); }}">
+          <input type="hidden" name="wisID" value="{{ $wisata = session('wisata'); }}">
           <form method="POST" action="/{{$action}}">
           @csrf
             <input type="hidden" name="_method" value="{{ $method }}" />
+              <!--
+                * Form untuk melakukan proses input atau update data paket
+
+                * Setiap field input diisi oleh data paket apabila user melakukan update. Data
+                * paket diambil dari data yang dikirimkan oleh controller paket. Data tersebut
+                * kemudian dimasukkan ke dalam field namaPaket, idWisata, idPenginapan, harga, 
+                * dan deskripsi.
+              -->
               <div class="form-groupP" style="text-align: left;">
                 <label>Nama Paket</label><br>
                 <input type="text" class="form-control" name="namaPaket" id="namaPaket" placeholder="Masukkan nama paket" value="{{ isset($data)?$data->namaPaket:'' }}">
               </div>
   
               <div class="form-groupP" style="text-align: left;">
-                <label>ID Wisata</label><br>
-                <input type="text" class="form-control" name="idWisata" id="idWisata" placeholder="Masukkan id wisata" value="{{ isset($data)?$data->idWisata:'' }}">
+                <label>Nama Wisata</label><br>
+                <select class="form-control" name="idWisata" id="idWisata">
+                  @foreach ($wisata as $w)
+                    @if (isset($data))
+                      @if ($w -> id == $data -> idWisata)
+                        <option value="{{ isset($data)?$data->idWisata:'' }}" disabled selected hidden>{{ $w -> namaWisata}}</option>
+                      @endif
+                    @endif
+                    <option value="{{ $w -> id }}">{{ $w -> namaWisata}}</option>
+                  @endforeach
+                </select>
               </div>
   
               <div class="form-groupP" style="text-align: left;">
-                <label>ID Penginapan</label><br>
-                <input type="text" class="form-control" name="idPenginapan" id="idPenginapan" placeholder="Masukkan id penginapan" value="{{ isset($data)?$data->idPenginapan:'' }}">
+                <label>Nama Penginapan</label><br>
+                <select class="form-control" name="idPenginapan" id="idPenginapan">
+                  @foreach ($penginapan as $p)
+                    @if (isset($data))
+                      @if ($w -> id == $data -> idWisata)
+                        <option value="{{ isset($data)?$data->idPenginapan:'' }}" disabled selected hidden>{{ $p -> namaPenginapan}}</option>
+                      @endif
+                    @endif
+                    <option value="{{ $p -> id }}">{{ $p -> namaPenginapan}}</option>
+                  @endforeach
+                </select>
               </div>
 
               <div class="form-groupP" style="text-align: left;">
@@ -93,7 +131,9 @@
 
               <input type="hidden" name="add" id="add" value="">
               <p>{{ session('msg') }}</p>
+              <!--Pesan error apabila terjadi error saat menginput data-->
               <button class="BtnL">SAVE</button>
+              <!--Mengirim data yang diinputkan oleh user ke controller paket dan menyimpannya ke data paket-->
           </form>
         </div>
       </div>
@@ -137,6 +177,7 @@
     </div>  
   </body>
   <footer>
+    <!--Footer-->
     <hr style="margin-left: 20px;margin-right: 20px;color:#333">
     <ul>
       <li>&copy 2022 KitaGO Company, Inc</li>

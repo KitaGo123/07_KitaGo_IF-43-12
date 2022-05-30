@@ -26,6 +26,7 @@
             </div>
         </div>
         <input type="hidden" name="userID" value="{{ $user = session('user'); }}">
+        <input type="hidden" name="pjID" value="{{ $pjasa = session('pjasa'); }}">
         @if (isset($user))
         <div class="navbar">
             <div class="dropdown">
@@ -45,8 +46,8 @@
             <div class="dropdown">
               <button class="dropbtn">Sign Up</button>
               <div class="dropdown-content">
-                <a href="/kgweb/regisA">Agent Traveller</a>
-                <a href="/kgweb/regisC">Traveller</a>
+                <a href="/kgweb/regis/agent">Agent Traveller</a>
+                <a href="/kgweb/regis/customer">Traveller</a>
               </div>
             </div> 
             <a href="/kgweb/login">Login</a>
@@ -60,6 +61,12 @@
       <div class="col-book" style="margin-bottom:20%">
         <h1>Congratulations, you have successfully ordered a package.</h1>
         <h2>I hope you enjoy this journey</h2>
+        <h2>Please contact the traveller agent to determine the date and pickup point</h2>
+        @foreach ($pjasa as $p)
+          @if ($p -> id == $paket -> idJasa)
+            <h2>Contact : <span>{{ $p -> telpNumbP }}</span></h2>
+          @endif
+        @endforeach
       </div>
     </div>
     <div class="row-1">

@@ -11,6 +11,8 @@ use App\Models\PenyediaJasa;
 use App\Models\Paket;
 use App\Models\Rating;
 use App\Models\Booking;
+use App\Models\Penginapan;
+use App\Models\Wisata;
 
 use Input;
 use Auth;
@@ -26,6 +28,8 @@ class LoginController extends Controller
 
     public function doLogin(Request $request)
     {
+        $penginapan = Penginapan::get();
+        $wisata = Wisata::get();
         $dataC = Customer::get();
         $dataA = PenyediaJasa::get();
         $paket = Paket::get();
@@ -35,6 +39,9 @@ class LoginController extends Controller
                 Session::put('user', $dC);
                 Session::put('paket', $paket);
                 Session::put('rates', $rates);
+                Session::put('pjasa', $dataA);
+                Session::put('penginapan', $penginapan);
+                Session::put('wisata', $wisata);
                 return view('kgweb.home', ['user' => $dC, 'paket' => $paket]);
             }
         }
@@ -43,6 +50,9 @@ class LoginController extends Controller
                 Session::put('user', $dA);
                 Session::put('paket', $paket);
                 Session::put('rates', $rates);
+                Session::put('pjasa', $dataA);
+                Session::put('penginapan', $penginapan);
+                Session::put('wisata', $wisata);
                 return view('kgweb.home', ['user' => $dA, 'paket' => $paket]);
             }
         }
@@ -54,6 +64,9 @@ class LoginController extends Controller
 
     public function viewProfile($id)
     {
+        if (null == Session::get('user')){
+            return redirect('/kgweb/login');
+        }
         return view('kgweb.viewProfile', [
             'title' => 'My Profile',
             'method' => 'GET',
@@ -63,6 +76,9 @@ class LoginController extends Controller
 
     public function viewPackage($id)
     {
+        if (null == Session::get('user')){
+            return redirect('/kgweb/login');
+        }
         $user = Customer::find($id);
         $book = Booking::get();
         $package = Paket::get();
@@ -83,6 +99,9 @@ class LoginController extends Controller
 
     public function editProfile($id)
     {
+        if (null == Session::get('user')){
+            return redirect('/kgweb/login');
+        }
         return view('kgweb.viewProfile', [
             'title' => 'Edit Profile',
             'method' => 'PUT',
@@ -93,6 +112,9 @@ class LoginController extends Controller
 
     public function updateProfile(Request $request, $id)
     {
+        if (null == Session::get('user')){
+            return redirect('/kgweb/login');
+        }
         $user = session('user');
         if (isset($user -> nama_lengkap)) {
             $data = Customer::find($id);
@@ -119,6 +141,9 @@ class LoginController extends Controller
 
     public function Logout(Request $request)
     {
+        if (null == Session::get('user')){
+            return redirect('/kgweb/login');
+        }
         Session::flush();
         return redirect('/kgweb');
     }

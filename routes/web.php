@@ -1,8 +1,7 @@
 <?php
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisCController;
-use App\Http\Controllers\RegisAController;
+use App\Http\Controllers\RegisController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\BookingController;
@@ -33,13 +32,9 @@ Route::get('/kgweb/{id}/package', [LoginController::class, 'viewPackage']);
 Route::get('/kgweb/{id}/editProfile', [LoginController::class, 'editProfile']);
 Route::put('/kgweb/{id}/updateProfile', [LoginController::class, 'updateProfile']);
 
-Route::get('/kgweb/regisC', [RegisCController::class, 'index'])->name('index');
-Route::get('/kgweb/regisC', [RegisCController::class, 'create'])->name('create');
-Route::post('/kgweb/loginC', [RegisCController::class, 'store']);
-
-Route::get('/kgweb/regisA', [RegisAController::class, 'index'])->name('index');
-Route::get('/kgweb/regisA', [RegisAController::class, 'create'])->name('create');
-Route::post('/kgweb/loginA', [RegisAController::class, 'store']);
+Route::get('/kgweb/regis', [RegisController::class, 'index'])->name('index');
+Route::get('/kgweb/regis/{type}', [RegisController::class, 'create'])->name('create');
+Route::post('/kgweb/registrasi', [RegisController::class, 'store']);
 
 Route::get('/kgweb/paket/createPaket', [PaketController::class, 'createPaket'])->name('createPaket');
 Route::post('/kgweb/paket/inputPaket', [PaketController::class, 'inputPaket']);
