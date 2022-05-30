@@ -42,7 +42,7 @@ class LoginController extends Controller
                 Session::put('pjasa', $dataA);
                 Session::put('penginapan', $penginapan);
                 Session::put('wisata', $wisata);
-                return view('kgweb.home', ['user' => $dC, 'paket' => $paket]);
+                return redirect('/');
             }
         }
         foreach ($dataA as $dA) {
@@ -53,7 +53,7 @@ class LoginController extends Controller
                 Session::put('pjasa', $dataA);
                 Session::put('penginapan', $penginapan);
                 Session::put('wisata', $wisata);
-                return view('kgweb.home', ['user' => $dA, 'paket' => $paket]);
+                return redirect('/');
             }
         }
         if ($request->username == null || $request->password == null) {
