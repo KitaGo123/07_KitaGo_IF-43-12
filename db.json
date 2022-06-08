@@ -1,24 +1,20 @@
-[
-{"type":"header","version":"5.1.1","comment":"Export to JSON plugin for PHPMyAdmin"},
-{"type":"database","name":"kitago"},
-{"type":"table","name":"admins","database":"kitago","data":
+{
+  "admins" :
 [
 {"id":"1","usernameA":"uoberbrunner","passwordA":"$2y$10$X\/rkmWMc\/tMqN8sdo8luoOETe28OLLnIBGKgJLbPI7wtgvnxMVgSS","created_at":"2022-04-11 17:01:28","updated_at":"2022-04-11 17:01:28"},
 {"id":"2","usernameA":"hmraz","passwordA":"$2y$10$aj\/O5Meraj39VhEeBfkfCORR5lqwjwlXBpXGq4Hk6Z2ksHiSs.MOa","created_at":"2022-04-11 17:01:28","updated_at":"2022-04-11 17:01:28"},
 {"id":"3","usernameA":"ritchie.tessie","passwordA":"$2y$10$odhQvjmpfwQOG7a6qzJwa.xk62cMmlFa3aG6AeSswQpLugDUOVQCq","created_at":"2022-04-11 17:01:28","updated_at":"2022-04-11 17:01:28"},
 {"id":"4","usernameA":"fgleichner","passwordA":"$2y$10$Hs6x3anHI7PL2kmy1ZS9JuIkvSd0bKxnllZr1YiG.19wOLzqc8nF2","created_at":"2022-04-11 17:01:28","updated_at":"2022-04-11 17:01:28"},
 {"id":"5","usernameA":"lkirlin","passwordA":"$2y$10$Cdo7WeTRrHBAvrpATNApleoclYtqkMOoEeWOtqjjeoVNrCj2BPity","created_at":"2022-04-11 17:01:28","updated_at":"2022-04-11 17:01:28"},
-]
-}
-,{"type":"table","name":"bookings","database":"kitago","data":
+],
+  "bookings" :
 [
 {"id":"11","idCustomer":"16","idPaket":"2","tanggalBooking":"2022-04-17","created_at":"2022-04-17 06:48:55","updated_at":"2022-04-17 06:48:55"},
 {"id":"12","idCustomer":"16","idPaket":"19","tanggalBooking":"2022-05-20","created_at":"2022-05-20 13:12:57","updated_at":"2022-05-20 13:12:57"},
 {"id":"13","idCustomer":"16","idPaket":"18","tanggalBooking":"2022-05-20","created_at":"2022-05-20 14:14:53","updated_at":"2022-05-20 14:14:53"},
 {"id":"27","idCustomer":"23","idPaket":"2","tanggalBooking":"2022-05-21","created_at":"2022-05-21 02:09:55","updated_at":"2022-05-21 02:09:55"}
-]
-}
-,{"type":"table","name":"customers","database":"kitago","data":
+],
+  "customers" :
 [
 {"id":"16","usernameC":"Kaze","passwordC":"$2y$10$tuynY5DaeZJ7pduKn7sh1ubfOBAduYTSeRHj2yo1DJm6QhN7FXob.","nama_lengkap":"Ridho Isral Essa","emailC":"ridho.206@gmail.com","birthDate":"2000-10-25","telpNumbC":"082173977715","created_at":"2022-04-13 11:39:35","updated_at":"2022-05-20 14:42:42"},
 {"id":"17","usernameC":"tester","passwordC":"$2y$10$8W..okpb8EX9wHxbpB1bPuhfRIkdprkOisMR8yvUb9hjNZ4.VArxy","nama_lengkap":"Tester","emailC":"testing@example.com","birthDate":"2022-04-03","telpNumbC":"080000000000","created_at":"2022-04-14 03:48:46","updated_at":"2022-04-14 04:34:16"},
@@ -30,14 +26,12 @@
 {"id":"23","usernameC":"tes","passwordC":"$2y$10$v3Vg8Am6GFQjLNuT6sUfyeZ3NCQSulZOJJOK9w\/w9lv4PaMVIgH76","nama_lengkap":"Ridho Essa","emailC":"percobaan@gmail.com","birthDate":"2022-05-24","telpNumbC":"080000000005","created_at":"2022-05-21 02:05:41","updated_at":"2022-05-21 02:07:21"},
 {"id":"24","usernameC":"fpurdy","passwordC":"$2y$04$3J7x.hyxgJ0ZDNZnPdhb\/uQXo\/7BLh\/w2Y6Q6jdQkLjKuTomQiOZC","nama_lengkap":"Ethelyn Ebert","emailC":"jlueilwitz@example.com","birthDate":"1978-11-10","telpNumbC":"1-551-722-0710","created_at":"2022-06-07 03:54:29","updated_at":"2022-06-07 03:54:29"},
 {"id":"25","usernameC":"darrick.huel","passwordC":"$2y$04$m7WQDdCMcIBqJWJLx2k0i.fGGaOvGNJhEmVx3\/U\/eSkLs1D0HdyJS","nama_lengkap":"Arnold Cormier III","emailC":"amely.schowalter@example.com","birthDate":"1975-11-07","telpNumbC":"+13528529373","created_at":"2022-06-07 03:54:29","updated_at":"2022-06-07 03:54:29"},
-]
-}
-,{"type":"table","name":"failed_jobs","database":"kitago","data":
+],
+  "failed_jobs" :
 [
 
-]
-}
-,{"type":"table","name":"migrations","database":"kitago","data":
+],
+  "migrations" :
 [
 {"id":"1","migration":"2014_10_12_000000_create_users_table","batch":"1"},
 {"id":"2","migration":"2014_10_12_100000_create_password_resets_table","batch":"1"},
@@ -53,9 +47,8 @@
 {"id":"12","migration":"2022_04_04_136558_create_payments_table","batch":"1"},
 {"id":"15","migration":"2022_04_15_085335_create_ratings_table","batch":"2"},
 {"id":"17","migration":"2022_04_15_155832_create_refunds_table","batch":"3"}
-]
-}
-,{"type":"table","name":"pakets","database":"kitago","data":
+],
+  "pakets" :
 [
 {"id":"1","namaPaket":"test","harga":"500000","deskripsi":"ini paket pertama","idPenginapan":"1","idWisata":"1","idJasa":"1","created_at":"2022-04-11 16:26:24","updated_at":"2022-04-11 16:26:24"},
 {"id":"2","namaPaket":"Surana","harga":"700000","deskripsi":"Berhasil loh ni","idPenginapan":"5","idWisata":"3","idJasa":"1","created_at":"2022-04-11 16:29:02","updated_at":"2022-04-11 16:29:02"},
@@ -72,19 +65,16 @@
 {"id":"25","namaPaket":"new paket","harga":"500000","deskripsi":" ","idPenginapan":"2","idWisata":"2","idJasa":"1","created_at":"2022-04-25 07:03:39","updated_at":"2022-04-25 07:03:39"},
 {"id":"26","namaPaket":"test paket","harga":"400000","deskripsi":"","idPenginapan":"2","idWisata":"3","idJasa":"1","created_at":"2022-04-25 07:04:53","updated_at":"2022-04-25 07:04:53"},
 {"id":"28","namaPaket":"mypaket","harga":"345345763","deskripsi":"paket ku","idPenginapan":"19","idWisata":"20","idJasa":"12","created_at":"2022-05-20 15:01:00","updated_at":"2022-05-20 15:01:00"}
-]
-}
-,{"type":"table","name":"password_resets","database":"kitago","data":
+],
+  "password_resets" :
 [
 
-]
-}
-,{"type":"table","name":"payments","database":"kitago","data":
+],
+  "payments" :
 [
 
-]
-}
-,{"type":"table","name":"penginapans","database":"kitago","data":
+],
+  "penginapans" :
 [
 {"id":"1","namaPenginapan":"Gorczany, Considine and Littel","hargaP":"31851","created_at":"2022-04-11 15:52:10","updated_at":"2022-04-11 15:52:10"},
 {"id":"2","namaPenginapan":"Heaney Ltd","hargaP":"95570","created_at":"2022-04-11 15:52:10","updated_at":"2022-04-11 15:52:10"},
@@ -111,9 +101,8 @@
 {"id":"23","namaPenginapan":"Cartwright, Wilderman and Haag","hargaP":"1299649","created_at":"2022-06-07 03:54:30","updated_at":"2022-06-07 03:54:30"},
 {"id":"24","namaPenginapan":"Hayes and Sons","hargaP":"773835","created_at":"2022-06-07 03:54:30","updated_at":"2022-06-07 03:54:30"},
 {"id":"25","namaPenginapan":"Grimes, Bahringer and Graham","hargaP":"1809556","created_at":"2022-06-07 03:54:30","updated_at":"2022-06-07 03:54:30"},
-]
-}
-,{"type":"table","name":"penyedia_jasas","database":"kitago","data":
+],
+  "penyedia_jasas" :
 [
 {"id":"1","usernameP":"lillac","passwordP":"$2y$10$UxyQWcfZhrJJCSjydUvjwujkYF1wiDqmDSncC8a3Df3ZBR7gCefHe","nama_penyedia_jasa":"DitaGent","emailP":"ditanovi@gmail.com","telpNumbP":"082177777777","alamat":"Jln. Sini, Kota Sana dan Dimana","created_at":"2022-04-11 15:36:09","updated_at":"2022-04-14 04:48:50"},
 {"id":"2","usernameP":"jennings.rohan","passwordP":"$2y$10$6HlLyATljIPdQkLOs\/FS4uXDPdJ3mgK24.y446mq5ovFzgoKaMJGC","nama_penyedia_jasa":"Ortiz-O'Keefe","emailP":"kassulke.lyda@example.org","telpNumbP":"520.930.9400","alamat":"728 Paucek Mount\nSouth Charityview, UT 61947-2389","created_at":"2022-04-11 17:01:27","updated_at":"2022-04-11 17:01:27"},
@@ -125,14 +114,12 @@
 {"id":"8","usernameP":"oschuppe","passwordP":"$2y$10$WZu9MAtyhpTXfROskYzYKuv4yS0CMfw0MqevNsHr\/kgqK6J0rsqpe","nama_penyedia_jasa":"Bogan-Auer","emailP":"fokuneva@example.net","telpNumbP":"480.368.6459","alamat":"186 Ted Oval\nDionchester, CO 09414-9707","created_at":"2022-04-17 06:28:26","updated_at":"2022-04-17 06:28:26"},
 {"id":"9","usernameP":"jakayla.harvey","passwordP":"$2y$10$fqEumXJX0SMUm4Xbi1TUEevyR6uWZHCalDP7MbVrA89F7O4\/eDLgu","nama_penyedia_jasa":"Kunze, Hane and West","emailP":"pcronin@example.com","telpNumbP":"405.977.2642","alamat":"87708 Lubowitz Turnpike Suite 468\nHellerside, SD 12838","created_at":"2022-04-17 06:28:26","updated_at":"2022-04-17 06:28:26"},
 {"id":"10","usernameP":"abe05","passwordP":"$2y$10$0FY7f3ffY3OnO2MomzaUme8W51yoPTeft7fWQ0OXppBj6OIWtQKDu","nama_penyedia_jasa":"Kuhlman, Carroll and Turcotte","emailP":"mgreenholt@example.net","telpNumbP":"+1 (680) 501-6061","alamat":"6612 Ellis Ferry Apt. 398\nNew Moriah, OH 64528-8691","created_at":"2022-04-17 06:28:26","updated_at":"2022-04-17 06:28:26"},
-]
-}
-,{"type":"table","name":"personal_access_tokens","database":"kitago","data":
+],
+  "personal_access_tokens" :
 [
 
-]
-}
-,{"type":"table","name":"ratings","database":"kitago","data":
+],
+  "ratings" :
 [
 {"id":"1","idUser":"16","idPaket":"1","rating":"4","created_at":"2022-04-15 09:49:00","updated_at":"2022-04-15 14:09:55"},
 {"id":"4","idUser":"16","idPaket":"3","rating":"5","created_at":"2022-04-15 12:14:05","updated_at":"2022-04-15 12:26:52"},
@@ -144,9 +131,8 @@
 {"id":"22","idUser":"16","idPaket":"24","rating":"5","created_at":"2022-04-17 06:40:05","updated_at":"2022-04-17 06:40:05"},
 {"id":"23","idUser":"16","idPaket":"25","rating":"4","created_at":"2022-05-20 14:39:16","updated_at":"2022-05-20 14:39:16"},
 {"id":"24","idUser":"23","idPaket":"4","rating":"4","created_at":"2022-05-21 02:11:45","updated_at":"2022-05-21 02:11:45"}
-]
-}
-,{"type":"table","name":"refunds","database":"kitago","data":
+],
+  "refunds" :
 [
 {"id":"1","idUser":"16","dateRefund":"2022-04-15","alasan":"Penyedia Jasanya mematahkan hatiku","created_at":"2022-04-15 16:36:53","updated_at":"2022-04-15 16:36:53"},
 {"id":"2","idUser":"16","dateRefund":"2022-05-20","alasan":"Saya cape","created_at":"2022-05-20 14:40:46","updated_at":"2022-05-20 14:40:46"},
@@ -154,14 +140,12 @@
 {"id":"4","idUser":"16","dateRefund":"2022-05-20","alasan":"tes","created_at":"2022-05-20 14:41:25","updated_at":"2022-05-20 14:41:25"},
 {"id":"5","idUser":"16","dateRefund":"2022-05-20","alasan":"d","created_at":"2022-05-20 14:41:39","updated_at":"2022-05-20 14:41:39"},
 {"id":"6","idUser":"23","dateRefund":"2022-05-21","alasan":"kurang sesuai dengan ekspektasi.","created_at":"2022-05-21 02:10:58","updated_at":"2022-05-21 02:10:58"}
-]
-}
-,{"type":"table","name":"users","database":"kitago","data":
+],
+  "users" :
 [
 
-]
-}
-,{"type":"table","name":"wisatas","database":"kitago","data":
+],
+  "wisatas" :
 [
 {"id":"1","namaWisata":"Koepp-Nolan","hargaW":"40804","created_at":"2022-04-11 15:52:10","updated_at":"2022-04-11 15:52:10"},
 {"id":"2","namaWisata":"Murray, Leannon and Bernier","hargaW":"90938","created_at":"2022-04-11 15:52:10","updated_at":"2022-04-11 15:52:10"},
@@ -190,4 +174,3 @@
 {"id":"25","namaWisata":"McGlynn Group","hargaW":"237244","created_at":"2022-06-07 03:54:30","updated_at":"2022-06-07 03:54:30"},
 ]
 }
-]
