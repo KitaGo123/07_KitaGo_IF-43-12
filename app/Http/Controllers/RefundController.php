@@ -28,6 +28,9 @@ class RefundController extends Controller
         if (null == Session::get('user')){
             return redirect('/kgweb/login');
         }
+        if (null == $request->alasan) {
+            $request->alasan = "";
+        }
         Booking::destroy($id);
         $user = session('user');
         $data = new Refund;

@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Paket extends Model
 {
+    protected $fillable = ['namaPaket'];
+
     protected $primaryKey = 'id'; //Memprotect variable primaryKey sebagai 'id'
     public $incrementing = true; //Mendefinisikan auto increment untuk data id
     use HasFactory; //Mendefinisikan factory untuk auto generate data Paket

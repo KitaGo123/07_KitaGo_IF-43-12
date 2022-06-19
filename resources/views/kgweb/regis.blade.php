@@ -91,6 +91,9 @@
                 <label style="font-size:18px;">Password</label><br>
                 <input type="password" class="form-control" name="passwordP" id="passwordP" placeholder="Masukkan Password" value="{{isset($data)?$data->passwordP:'' }}">
               </div>
+              <div>
+                <input type="hidden" name="type" value="agent">
+              </div>
               <p style="text-align:left;margin-bottom:5%; margin-top:10%;">{{ session('msg') }}</p>
               <button class="BtnL" style="margin-right:30%">REGISTER</button>
             </form>
@@ -120,6 +123,9 @@
               <div class="form-groupP" style="text-align:left;margin-bottom:5%; margin-top:10%;">
                 <label style="font-size:18px;">Password</label><br>
                 <input type="password" class="form-control" name="passwordC" id="passwordC" placeholder="Masukkan Password" value="{{isset($data)?$data->passwordC:'' }}">
+              </div>
+              <div>
+                <input type="hidden" name="type" value="customer">
               </div>
               <p style="text-align:left;margin-bottom:5%; margin-top:10%;">{{ session('msg') }}</p>
               <button class="BtnL" style="margin-right:30%">REGISTER</button>
