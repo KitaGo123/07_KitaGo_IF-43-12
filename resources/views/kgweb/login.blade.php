@@ -71,9 +71,6 @@
             </div>
             <p>{{ session('msg') }}</p>
             <button class="BtnL">LOGIN</button>
-            <div class="text-center" style="font-family: apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
-              Have not signed in yet? <a href="/kgweb/regisC" style="font-weight:bold">Register Now!</a>
-            </div>
           </form>
         </div>
       </div>
