@@ -95,7 +95,7 @@
                   @foreach ($wisata as $w)
                     @if (isset($data))
                       @if ($w -> id == $data -> idWisata)
-                        <option selected value="{{ $w -> id }}">{{ $w -> namaWisata}}</option>
+                        <option selected value="{{ $w -> id }}" hidden>{{ $w -> namaWisata}}</option>
                       @endif
                     @endif
                     <option value="{{ $w -> id }}">{{ $w -> namaWisata}}</option>
@@ -109,7 +109,7 @@
                   @foreach ($penginapan as $p)
                     @if (isset($data))
                       @if ($p -> id == $data -> idPenginapan)
-                        <option selected value="{{ $p -> id }}">{{ $p -> namaPenginapan}}</option>
+                        <option selected value="{{ $p -> id }}" hidden>{{ $p -> namaPenginapan}}</option>
                       @endif
                     @endif
                     <option value="{{ $p -> id }}">{{ $p -> namaPenginapan}}</option>
