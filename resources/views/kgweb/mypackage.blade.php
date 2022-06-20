@@ -1,6 +1,10 @@
 <!DOCTYPE html>
+<!--PENDAHULUAN
+    Source code ini adalah source code yang digunakan untuk menampilkan list dari paket yang sedang dibooking oleh customer
+    Kebanyakn isi dari source code ini sama persis dengan view profile-->
 <html>
 <head>
+    <!--Definisi seluruh library yang dibutuhkan-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KitaGO - My Package</title>
@@ -8,6 +12,7 @@
     <link rel="stylesheet" href="{{ URL::to('KitaGO.css') }}">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--mendefinisikan style untuk font-->
     <style>
       @font-face {
         font-family: "Font GO";
@@ -21,13 +26,18 @@
     </style>
 </head>
   <body>
+    <!--Header-->
     <header>
         <div class="cont">
+            <!--pembuatan logo-->
             <div class="header-left">
             Kita<span style="font-family: 'Font GO'; color:white">GO</span>
             </div>
         </div>
+        <!--mengambil data user pada session-->
         <input type="hidden" name="userID" value="{{ $user = session('user'); }}">
+        <!--navigasi bar plus metode dropdown pada logo profile-->
+        <!--navbar apabila user telah login-->
         @if (isset($user))
           <div class="navbar">
             <div class="dropdown">
@@ -42,6 +52,7 @@
             <a href="#Contact">Contact</a>
             <a href="/">Home</a> 
           </div>
+        <!--navbar apabila user belum login--> 
         @else
           <div class="navbar">
             <div class="dropdown">
@@ -58,6 +69,7 @@
           </div>
         @endif
     </header>
+    <!--Body-->
     <div class="carde">
       <div class="carde-rigth">
         <img src="/css/user.png" alt="Avatar" style="width:40%">
@@ -83,6 +95,7 @@
           <h3>{{ $title }}</h3>
           <hr>
         </div>
+        <!--Menampilkan list paket-->
           @if (isset($package))
             @foreach ($package as $p)
               <div class="row-p">
@@ -96,6 +109,7 @@
                         <div class="col-pk2">
                           <h1>{{ $p -> namaPaket }}</h1>
                           <p>price: {{ $p -> harga }}</p>
+                          <!--Memasukan data booking-->
                           @foreach ($book as $b)
                             @if ($b -> idPaket == $p -> id)
                               <p style="color: #5f5d5dbd;">book date: {{ $b -> tanggalBooking }}</p>
@@ -119,10 +133,12 @@
       </div>
       </div>
     </div>
+    <!--FOOTER-->
     <div class="row-1">
       <div class="col">
         <h3>KitaGO will accompany your journey, anywhere and anytime. Enjoy your holiday with us</h3>
       </div>
+      <!--API Map untuk daerah bandung-->
       <div class="col-2">
         <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=bandung&ie=UTF8&t=&z=14&iwloc=B&output=embed" style="filter: contrast(1.2) opacity(3);height: 100%;"></iframe>
       </div>
@@ -134,6 +150,7 @@
           <p>Make your holiday be filled with joyness!</p>
         </div>
       </div>
+      <!--Navbar Footer-->
       <div class="col22">
         <h1>Features</h1>
         <ul>
@@ -143,6 +160,7 @@
           <li><a href="/kgweb">Home</a></li>
         </ul>
       </div>
+      <!--Alamat Kantor-->
       <div class="col23" id="Contact">
         <h1>Contact Us</h1>
         <p>Jl. Telekomunikasi No. 1,</p>
@@ -150,6 +168,7 @@
         <p>Kecamtan Dayeuhkolot, Kabupaten Bandung,</p>
         <p>Jawa Barat 40257</p>
       </div>
+      <!--Telkom University-->
       <div class="col24">
         <p>This website present by</p>
         <p>Telkom University Group 9</p>
