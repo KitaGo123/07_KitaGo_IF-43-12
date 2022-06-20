@@ -1,6 +1,11 @@
 <!DOCTYPE html>
+<!--PENDAHULUAN
+    Source code ini adalah source code view dari view profile, didalamnya terdapat header, body dan footer
+    pada source code ini dibuat supaya pada body terdapat dua kolom, kolom disebelah kiri digunakan untuk 
+    menampilkan tombol-tombol seperti my profile, my pakcage (untuk custoemr), edit profile, dan logout-->
 <html>
 <head>
+    <!--Definisi seluruh library yang dibutuhkan-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KitaGO - View Profile</title>
@@ -8,6 +13,7 @@
     <link rel="stylesheet" href="{{ URL::to('KitaGO.css') }}">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--mendefinisikan style untuk font-->
     <style>
       @font-face {
         font-family: "Font GO";
@@ -22,12 +28,17 @@
 </head>
   <body>
     <header>
+    <!--Header-->
         <div class="cont">
+            <!--pembuatan logo-->
             <div class="header-left">
             Kita<span style="font-family: 'Font GO'; color:white">GO</span>
             </div>
         </div>
+        <!--mengambil data user pada session-->
         <input type="hidden" name="userID" value="{{ $user = session('user'); }}">
+        <!--navigasi bar plus metode dropdown pada logo profile-->
+        <!--navbar apabila user telah login-->
         @if (isset($user))
           <div class="navbar">
             <div class="dropdown">
@@ -42,6 +53,7 @@
             <a href="#Contact">Contact</a>
             <a href="/">Home</a> 
           </div>
+        <!--navbar apabila user belum login-->  
         @else
           <div class="navbar">
             <div class="dropdown">
@@ -58,11 +70,13 @@
           </div>
         @endif
     </header>
+    <!--Body-->
     <div class="carde">
       <div class="carde-rigth">
         <img src="/css/user.png" alt="Avatar" style="width:40%">
         <h1 style="font-weight: bold;">{{ $user -> nama_lengkap }}</h1>
         <ul class="vpa">
+          <!--Apabila user adalah customer-->
           @if (isset($user -> nama_lengkap))
             @if (!isset($edit))
               <li class="vp active">
@@ -91,6 +105,7 @@
                 <a href="/kgweb/logout">Logout</a>
               </li>
             @endif
+          <!--Apabila user adalah penyedia jasa--> 
           @elseif (isset($user -> nama_penyedia_jasa))
             @if (!isset($edit))
               <li class="vp active">
@@ -116,6 +131,7 @@
           @endif
         </ul>
       </div>
+      <!--Form PROFILE dan EDIT-->
       <div class="carde-left">
         <div class="col-12">
         <div class="my-5">
@@ -129,7 +145,13 @@
                   <form method="POST" action="/{{ $action }}">
                   @csrf
                     <input type="hidden" name="_method" value="{{ $method }}" />
+                    <!--FORM EDIT PROFILE
+                    * Form ini digunakan untuk melakukan edit profile,
+                      variabelnya adalah nama, telepon number, email, tanggal lahir jika user adalah customer
+                      setiap field diisi dengan perubahan tergantung user, lalu data akan dikirimkan oleh controller
+                      kemudian akan dilakukan update profile oleh controller  -->
                     @if (isset($edit))
+                       <!--Apabila user adalah customer-->
                       @if (isset($user -> nama_lengkap))
                         <div class="fprofil">
                           <label class="form-label">Name</label>
@@ -147,6 +169,7 @@
                           <label class="form-label">Birthdate</label>
                           <input type="date" name="birthDate" id="birthDate" class="form-control" placeholder="" value="{{ isset($user)?$user -> birthDate:'' }}">
                         </div>
+                      <!--Apabila user adalah penyedia jasa-->  
                       @elseif (isset($user -> nama_penyedia_jasa))
                       <div class="fprofil">
                           <label class="form-label">Name</label>
@@ -167,6 +190,7 @@
                       @endif
                       <button class="btn btn-register btn-block btn-success" style="color: white;background-color: black;border:none;border-radius:20px">SAVE</button>
                     @else
+                      <!--Apabila user adalah customer-->
                       @if (isset($user -> nama_lengkap))
                         <div class="fprofil">
                           <label class="form-label">Name</label>
@@ -184,6 +208,7 @@
                           <label class="form-label">Birthdate</label>
                           <input type="date" name="birthDate" id="birthDate" class="form-control" placeholder="" value="{{ isset($user)?$user -> birthDate:'' }}" disabled>
                         </div>
+                      <!--Apabila user adalah penyedia jasa-->  
                       @elseif (isset($user -> nama_penyedia_jasa))
                       <div class="fprofil">
                           <label class="form-label">Company Name</label>
@@ -211,15 +236,17 @@
       </div>
       </div>
     </div>
-
+    <!--FOOTER-->
     <div class="row-1">
       <div class="col">
         <h3>KitaGO will accompany your journey, anywhere and anytime. Enjoy your holiday with us</h3>
       </div>
+      <!--API Map untuk daerah bandung-->
       <div class="col-2">
         <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=bandung&ie=UTF8&t=&z=14&iwloc=B&output=embed" style="filter: contrast(1.2) opacity(3);height: 100%;"></iframe>
       </div>
     </div>
+    <!--Logo-->
     <div class="row-2">
       <div class="col1">
         <div class="logof">
@@ -227,6 +254,7 @@
           <p>Make your holiday be filled with joyness!</p>
         </div>
       </div>
+      <!--Navbar Footer-->
       <div class="col22">
         <h1>Features</h1>
         <ul>
@@ -236,6 +264,7 @@
           <li><a href="/kgweb">Home</a></li>
         </ul>
       </div>
+      <!--Alamat Kantor-->
       <div class="col23" id="Contact">
         <h1>Contact Us</h1>
         <p>Jl. Telekomunikasi No. 1,</p>
@@ -243,6 +272,7 @@
         <p>Kecamtan Dayeuhkolot, Kabupaten Bandung,</p>
         <p>Jawa Barat 40257</p>
       </div>
+      <!--Telkom University-->
       <div class="col24">
         <p>This website present by</p>
         <p>Telkom University Group 9</p>
