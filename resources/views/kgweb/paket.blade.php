@@ -108,7 +108,7 @@
                 <select class="form-control" name="idPenginapan" id="idPenginapan">
                   @foreach ($penginapan as $p)
                     @if (isset($data))
-                      @if ($w -> id == $data -> idWisata)
+                      @if ($P -> id == $data -> idPenginapan)
                         <option value="{{ isset($data)?$data->idPenginapan:'' }}" disabled selected hidden>{{ $p -> namaPenginapan}}</option>
                       @endif
                     @endif
